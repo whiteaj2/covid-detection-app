@@ -36,3 +36,142 @@
     transform: rotate(360deg);
   }
 }
+
+/* CUSTOM STYLING */ 
+.btn-custom {
+  background-color: #b6545c;
+  color: #F4F7F7;
+}
+
+.btn-custom:hover {
+  background-color: rgba(182, 84, 92, 0.85);
+  color: #F4F7F7;
+}
+
+.btn-outline-success {
+  border-color: #6c9454;
+  color: #6c9454;
+}
+
+.btn-outline-success:hover { 
+  background-color: #6c9454;	
+}
+
+
+
+/* LOGIN PAGE */ 
+
+.card-login {
+  width: 500px;
+  height: 450px;
+  padding: 30px;
+  margin: 0 auto;
+  float: none; 
+  margin-top: 50px; 
+  border-radius: 15px;
+  box-shadow: 10px 10px rgb(47, 41, 70);
+}
+
+.card-login h2 {
+  color: #2F2946;
+  font-weight: bold;
+}
+
+.form-group {
+  margin: 2px;
+}
+
+.login-buttons button {
+  margin-top: 30px;
+}
+
+.login-buttons p {
+  margin-top: 15px;
+}
+
+.login-buttons a {
+  color: #A8A8B4;
+}
+
+.login-buttons a:hover {
+  text-decoration: underline;
+}
+
+.login-buttons .btn-custom {
+  width: 100px;
+}
+
+/* SIGN UP PAGE */
+
+.card-signup {
+  width: 500px;
+  height: 450px;
+  padding: 30px;
+  margin: 0 auto;
+  float: none; 
+  margin-top: 50px; 
+  border-radius: 15px;
+  box-shadow: 10px 10px rgb(47, 41, 70);
+}
+
+.card-signup h2 {
+  color: #2F2946;
+  font-weight: bold;
+}
+
+.card-signup button {
+  margin-top: 30px;
+  width: 100px;
+}
+
+/* PRE-SCREEN PAGE */ 
+
+.card-screen {
+  width: 900px;
+  padding: 30px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  float: none; 
+  margin-top: 30px; 
+  border-radius: 15px;
+  box-shadow: 10px 10px rgb(47, 41, 70, 0.2);
+}
+
+#screen-title {
+  margin: 50px auto 0px auto;
+  font-weight: bold;
+}
+
+#address-title {
+  margin-top: 20px;
+}
+
+.card-screen h4 {
+  font-weight: bold;
+}
+
+.screen p {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.screen {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-left: 35px;
+  
+}
+
+.form-check {
+  padding-left: 50px;
+}
+
+.card-screen .form-row {
+  margin-top: 25px;
+}
+
+.address {
+  width: 600px;
+  margin: 0 auto;
+}
+
