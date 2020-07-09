@@ -11,7 +11,12 @@ import Test from './components/Test';
 
 import './App.css';
 
+function handleSearch () {
+  fetch("/handleSearch", {method: "POST"}).then(res => {return res.json();}).then(data => console.log(data));
+}
+
 function App() {
+
   return (
     <Router>
     <div className="App">
@@ -20,7 +25,7 @@ function App() {
 
     
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleSearch}>Search</button>
   
 
         <div className="container">
