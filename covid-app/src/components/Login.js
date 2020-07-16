@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import image form "./images/name.jpg"
 
 export class Login extends Component {
 
