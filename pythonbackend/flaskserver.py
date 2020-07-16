@@ -19,10 +19,17 @@ def handleSubmit():
     data = json.loads(request.data.decode("utf-8"))
     email = data["email"]
     password = data["password"]
-    print(email)
-    print(password)
+
+    cursor = cnx.cursor()
+
+    res = cursor.callproc("auth", [email, password, 0])
+    cursor.close()
+
+    flag = res[2]
+    returnData = {}
+    returnData["flag"] = flag
     
-    return json.dumps("{}")
+    return json.dumps(returnData)
 
 @app.route("/handleSignup", methods=["POST"])
 def handleSignup():
@@ -33,15 +40,26 @@ def handleSignup():
     password = data["password"]
     email = data["email"]
     confirmEmail = data["confirmEmail"]
+    address = data["address"]
+    phone = data["phone"]
 
     if(email != confirmEmail):
-        return json.dumps("{}")
+        return json.dumps("{'status': 'failure'}")
 
     cursor = cnx.cursor()
 
-    queryString = "INERST INTO users VALUES (" + uname + "," + fname + "," + lname + "," + "testaddress," + "testphone," + email + ");" 
-    cursor.execute(queryString)
-    cursor.close()
+    try:
+        args = [uname, fname, lname, address, phone, email, password]
+        cursor.callproc("InsertUser", args)
+        cnx.commit()
+        cursor.close()
+
+    except mysql.connector.Error as e:
+        print("Error: ", e)
+        sys.stdout.flush()
+
+
+    return json.dumps("{'status': 'success'}")
 
 
 if __name__ == '__main__':
