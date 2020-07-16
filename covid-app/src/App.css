@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+  height: 100vh;
 }
 
 .App-logo {
@@ -23,6 +25,15 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+
+}
+
 
 .App-link {
   color: #61dafb;
@@ -51,6 +62,7 @@
 .btn-outline-success {
   border-color: #6c9454;
   color: #6c9454;
+  background-color: white;
 }
 
 .btn-outline-success:hover { 
@@ -59,11 +71,23 @@
 
 
 
-/* LOGIN PAGE */ 
+body {
+  background-image: url(images/triangle-mosaic.png);
+}
 
+
+/* HOME PAGE */
+.jumbotron .container {
+  text-align: left;
+}
+
+.card-deck {
+  margin: 50px 100px;
+}
+
+/* LOGIN PAGE */ 
 .card-login {
   width: 500px;
-  height: 450px;
   padding: 30px;
   margin: 0 auto;
   float: none; 
@@ -75,6 +99,7 @@
 .card-login h2 {
   color: #2F2946;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .form-group {
@@ -82,11 +107,11 @@
 }
 
 .login-buttons button {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .login-buttons p {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .login-buttons a {
@@ -104,8 +129,7 @@
 /* SIGN UP PAGE */
 
 .card-signup {
-  width: 500px;
-  height: 450px;
+  width: 600px;
   padding: 30px;
   margin: 0 auto;
   float: none; 
@@ -119,13 +143,16 @@
   font-weight: bold;
 }
 
+.card-signup input {
+  margin-bottom: 7px;
+}
+
 .card-signup button {
   margin-top: 30px;
   width: 100px;
 }
 
 /* PRE-SCREEN PAGE */ 
-
 .card-screen {
   width: 900px;
   padding: 30px;

@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import About from './components/About';
 import Test from './components/Test';
+import Main from './components/Map';
 
 import './App.css';
 
@@ -32,8 +33,11 @@ function App() {
           
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-                <Link className="nav-link" to={"/Home"}>Home</Link>
+              <li className="nav-item">
+                <Link className="nav-link " to={"/Map"}>Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/Home"}>Map</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link " to={"/Login"}>Login</Link>
@@ -52,6 +56,7 @@ function App() {
           </div>
         </div>
       </nav>
+
       
 
       <div className="auth-wrapper">
@@ -63,9 +68,13 @@ function App() {
             <Route path="/Test" component={Test} />
             <Route path="/About" component={About} />
             <Route path="/Home" component={Home} />
+            <Route path="/Map" component={Main} />
           </Switch>
         </div>
       </div>
+
+      <div class="footer fixed-bottom">&copy; COVID DETECTION 2020</div>
+
     </div></Router>
   );
 }
