@@ -31,8 +31,9 @@ export class Signup extends Component {
 
     render() {
         return (<form><br/><br/><br/>
+             
             <div className="card card-signup">
-                <h2>Sign Up</h2>
+               <h2>Sign Up</h2>
                 <div className="form-group">
                     <div className="center">
                     <br/>
@@ -49,8 +50,8 @@ export class Signup extends Component {
                     <button type="submit" className="btn btn-custom" 
                         onClick={this.signup}>
                             Submit</button>
-                </div>
-            </div>
+                </div>  
+            </div>   
             </form>
         )
     }

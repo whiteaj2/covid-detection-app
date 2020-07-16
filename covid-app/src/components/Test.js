@@ -4,7 +4,7 @@ export class Test extends Component {
     render() {
         return (
             <form><br/><br/><br/>
-            <h2 id="screen-title">Pre-Screening Form</h2><br/>
+            <h2 id="screen-title">PRE-SCREENING FORM</h2><br/>
             <div class="card card-screen">
                 
 
