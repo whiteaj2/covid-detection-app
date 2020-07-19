@@ -10,6 +10,8 @@ import About from './components/About';
 import Test from './components/Test';
 import Main from './components/Map';
 
+import logo from '../src/images/logo-2.png';
+
 import './App.css';
 
 function handleSearch () {
@@ -22,7 +24,9 @@ function App() {
     <Router>
     <div className="App">
     <nav className="navbar navbar-expand-lg navbar-light fixed-top "  >
-    <a class="navbar-brand" href={"/map"}>COVID DETECTION</a>
+      <a class="navbar-brand font-weight-bold" href={"/map"}>
+        <img src={logo} height="35" alt="logo" /> EVERYTHING COVID-19
+      </a>
 
     
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -37,16 +41,16 @@ function App() {
                 <Link className="nav-link " to={"/Map"}>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"/Home"}>Map</Link>
+                <Link className="nav-link" to={"/Home"}>COVID-19 Map</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/Test"}>Find a Test Site</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link " to={"/Login"}>Login</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"/Signup"}>Sign up</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/Test"}>Test</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"/About"}>About</Link>
@@ -73,7 +77,7 @@ function App() {
         </div>
       </div>
 
-      <div class="footer fixed-bottom">&copy; COVID DETECTION 2020</div>
+      <div class="footer fixed-bottom">&copy; EVERYTHING COVID-19 2020</div>
 
     </div></Router>
   );

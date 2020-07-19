@@ -4,13 +4,14 @@ export class Test extends Component {
     render() {
         return (
             <form><br/><br/><br/>
-            <h2 id="screen-title">PRE-SCREENING FORM</h2><br/>
+            <h2 id="screen-title">FIND A TESTING CENTER</h2><br/>
+            <p id="screen-info">Fill out our form to find which COVID-19 testing centers you qualify for in Marion County.</p>
             <div class="card card-screen">
                 
 
                 <h4>Patient Screening</h4>
                 <div className="screen">
-                    <p>Are you a Parent/Guardian registering on behalf of a minor?</p>
+                    <p>Are you over the age of 18?</p>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="screenOne" id="yes" value="yes"/>
                         <label className="form-check-label" for="yes">
@@ -23,8 +24,8 @@ export class Test extends Component {
                             No
                         </label>
                     </div>
-                
-                    <p>Were you or your minor/dependent advised to get tested for COVID-19 by a public health official?</p>
+
+                    <p>Are you over the age of 65?</p>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="screenTwo" id="yes" value="yes"/>
                         <label className="form-check-label" for="yes">
@@ -37,9 +38,8 @@ export class Test extends Component {
                             No
                         </label>
                     </div>
-
-                    <p>Have you or your minor/dependent had close contact, within 6 feet of a COVID-19 infected 
-                    person for at least 15 minutes starting from 48 hours before the onset of the infected person’s illness?</p>
+                
+                    <p>Have you been instructed to get tested by your state, health department or medical professional?</p>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="screenThree" id="yes" value="yes"/>
                         <label className="form-check-label" for="yes">
@@ -53,7 +53,8 @@ export class Test extends Component {
                         </label>
                     </div>
 
-                    <p>Do you or your minor/dependent work or live in a group setting (this includes Long Term Care Facilities)?</p>
+                    <p>Have you had close contact, within 6 feet of a COVID-19 infected 
+                    person for at least 15 minutes starting from 48 hours before the onset of the infected person’s illness?</p>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="screenFour" id="yes" value="yes"/>
                         <label className="form-check-label" for="yes">
@@ -67,7 +68,7 @@ export class Test extends Component {
                         </label>
                     </div>
 
-                    <p>Have you or your minor/dependent recently developed any COVID-19 symptoms? Check those that apply.</p>
+                    <p>Have you recently developed any COVID-19 symptoms? Select all that apply.</p>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="screenCheck1"/>
                         <label class="form-check-label" for="screenCheck1">
@@ -123,8 +124,85 @@ export class Test extends Component {
                         </label>
                     </div>
 
-                    <p>Are you or your minor/dependent over the age of 65, part of a high-risk group due to underlying conditions 
-                    (such as diabetes, high blood pressure, obesity, etc), or part of a high risk minority population?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck10"/>
+                        <label class="form-check-label" for="screenCheck10">
+                            Vomiting
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck11"/>
+                        <label class="form-check-label" for="screenCheck11">
+                            Diarrhea
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck12"/>
+                        <label class="form-check-label" for="screenCheck12">
+                            Sore Throat
+                        </label>
+                    </div>
+
+                    <p>Are you part of a high-risk group due to underlying conditions? Select all that apply.</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck13"/>
+                        <label class="form-check-label" for="screenCheck13">
+                            Asthma or chronic lung disease
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck14"/>
+                        <label class="form-check-label" for="screenCheck14">
+                            Diabetes
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck15"/>
+                        <label class="form-check-label" for="screenCheck15">
+                            Extreme obesity
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck16"/>
+                        <label class="form-check-label" for="screenCheck16">
+                            Cirrhosis of the liver
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck17"/>
+                        <label class="form-check-label" for="screenCheck17">
+                            Serious heart condition, such as congestive heart failure
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck18"/>
+                        <label class="form-check-label" for="screenCheck18">
+                            Diseases or conditions that make it harder to cough
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck19"/>
+                        <label class="form-check-label" for="screenCheck19">
+                            Kidney failure or end stage renal disease 
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="screenCheck20"/>
+                        <label class="form-check-label" for="screenCheck20">
+                            Conditions that result in a weakened immune system, including cancer treatment
+                        </label>
+                    </div>
+
+                    <p>Are you pregnant?</p>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="screenFive" id="yes" value="yes"/>
                         <label className="form-check-label" for="yes">
@@ -138,112 +216,7 @@ export class Test extends Component {
                         </label>
                     </div>
 
-                    <p>Are you or your minor/dependent employed?</p>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenSix" id="yes" value="yes"/>
-                        <label className="form-check-label" for="yes">
-                            Yes
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenSix" id="no" value="no"/>
-                        <label className="form-check-label" for="no">
-                            No
-                        </label>
-                    </div>
-
-                    <p>Do you or your minor/dependent smoke, chew, and/or vape tobacco?</p>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenSeven" id="no" value="no"/>
-                        <label className="form-check-label" for="no">
-                            Not at all
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenSeven" id="some" value="some"/>
-                        <label className="form-check-label" for="some">
-                            Some days
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenSeven" id="everyday" value="everyday"/>
-                        <label className="form-check-label" for="everyday">
-                            Every day
-                        </label>
-                    </div>
-
-                    <p>Race:</p>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="asian" value="asian"/>
-                        <label className="form-check-label" for="asian">
-                            Asian
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="black" value="black"/>
-                        <label className="form-check-label" for="black">
-                            Black or African American
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="native" value="native"/>
-                        <label className="form-check-label" for="native">
-                            American Indian or Alaska Native
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="pacific" value="pacific"/>
-                        <label className="form-check-label" for="pacific">
-                            Native Hawaiian or Other Pacific Islander
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="white" value="white"/>
-                        <label className="form-check-label" for="white">
-                            White
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="multi" value="multi"/>
-                        <label className="form-check-label" for="multi">
-                            Multiracial
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="other" value="other"/>
-                        <label className="form-check-label" for="other">
-                            Other
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenEight" id="unknown" value="unknown"/>
-                        <label className="form-check-label" for="unknown">
-                            Unknown
-                        </label>
-                    </div>
-
-
-                    <p>Ethnicity</p>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenNine" id="hispanic" value="hispanic"/>
-                        <label className="form-check-label" for="hispanic">
-                            Hispanic or Latino
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenNine" id="not" value="not"/>
-                        <label className="form-check-label" for="not">
-                            Not Hispanic or Latino
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="screenNine" id="unknown" value="unknown"/>
-                        <label className="form-check-label" for="unknown">
-                            Unknown
-                        </label>
-                    </div>
-
-                    <p>Do you or your minor/dependent have current health insurance?</p>
+                    <p>Are you an essential worker or healthcare worker?</p>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="screenSix" id="yes" value="yes"/>
                         <label className="form-check-label" for="yes">
@@ -261,7 +234,7 @@ export class Test extends Component {
 
                 <hr></hr>
 
-                <h4 id="address-title">Mailing Address</h4>
+                <h4 id="address-title">Patient Mailing Address</h4>
                 <div class="address">
                     <div class="form-group">
                         <label for="inputAddress"></label>
@@ -283,11 +256,100 @@ export class Test extends Component {
                         <input type="text" class="form-control" placeholder="Zip"/>
                         </div>
                     </div>
+                </div><br></br>
 
-                    <div className="login-buttons">
-                        <button type="submit" className="btn btn-custom">Submit</button><br/>
+                <hr></hr>
+
+                <h4 id="address-title">Last Known Locations</h4>
+                <p id="screen-p">We rely on your voluntary participation to map potential COVID-19 outbreaks in the Indianapolis area.
+                Please fill out your last three known public locations. Your data will remain completely anonymous. We appreciate your help!
+                </p>
+                <div class="address">
+                    <div class="form-group">
+                        <label id="loc-label" for="inputLocation">Location One:</label>
+                        <input type="text" class="form-control" id="inputLocation" placeholder="Location Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress"></label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line 1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2"></label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2"/>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="col-7">
+                        <input type="text" class="form-control" placeholder="City"/>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="State"/>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Zip"/>
+                        </div>
                     </div>
                 </div> 
+
+                <div class="address">
+                    <div class="form-group">
+                        <label id="loc-label" for="inputLocation">Location Two:</label>
+                        <input type="text" class="form-control" id="inputLocation" placeholder="Location Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress"></label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line 1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2"></label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2"/>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="col-7">
+                        <input type="text" class="form-control" placeholder="City"/>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="State"/>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Zip"/>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="address">
+                    <div class="form-group">
+                        <label id ="loc-label" for="inputLocation">Location Three:</label>
+                        <input type="text" class="form-control" id="inputLocation" placeholder="Location Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress"></label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line 1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2"></label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2"/>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="col-7">
+                        <input type="text" class="form-control" placeholder="City"/>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="State"/>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Zip"/>
+                        </div>
+                    </div>
+                </div> 
+
+
+                <div className="login-buttons">
+                        <button type="submit" className="btn btn-custom">Submit</button><br/>
+                </div>
+
             </div>
         </form>
         )
