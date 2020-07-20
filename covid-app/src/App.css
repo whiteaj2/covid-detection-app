@@ -27,6 +27,7 @@
 
 .navbar {
   text-align: center;
+  background-color: white;
 }
 
 .navbar .navbar-brand {
@@ -36,8 +37,9 @@
 .footer {
   font-size: 12px;
   text-align: center;
-  background-color: white;
+  background: white;
   padding: 10px;
+
 }
 
 
@@ -88,11 +90,24 @@ body {
 .jumbotron {
   background: none;
   margin-top: 100px;
+  margin-bottom: 5px;
   text-align: center;
 }
 
+.jumbotron a {
+  width: 160px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.jumbotron p {
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
 .card-deck {
-  margin: 50px 100px;
+  margin-left: 100px;
+  margin-right: 100px;
   text-align: center;
 }
 
@@ -106,6 +121,7 @@ body {
   border-radius: 15px;
   box-shadow: 10px 10px rgb(47, 41, 70);
   text-align: center;
+  padding-top: 15px;
 }
 
 .card .btn-custom {
@@ -116,8 +132,9 @@ body {
   color: white;
 }
 
-.card a {
-  margin: auto 20px;
+.about-us {
+  margin-top: 10px;
+  padding-top: 100px;
 }
 
 
@@ -143,24 +160,12 @@ body {
   margin: 2px;
 }
 
+.form-group a {
+  color: #D77359;
+}
+
 .login-buttons button {
-  margin-top: 40px;
-}
-
-.login-buttons p {
   margin-top: 20px;
-}
-
-.login-buttons a {
-  color: #A8A8B4;
-}
-
-.login-buttons a:hover {
-  text-decoration: underline;
-}
-
-.login-buttons .btn-custom {
-  width: 100px;
 }
 
 /* SIGN UP PAGE */
@@ -268,4 +273,5 @@ body {
 .login-buttons {
   text-align: center;
 }
+
 

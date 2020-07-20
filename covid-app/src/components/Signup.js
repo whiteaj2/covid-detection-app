@@ -58,9 +58,14 @@ export class Signup extends Component {
                     </center>
                     </div>
 
-                    <button type="submit" className="btn btn-custom" 
-                        onClick={this.handleSignup}>
-                            Submit</button>
+                    <div class="center">
+                        <p>Already have an account? <a href="login">Login</a></p>
+                    </div>
+
+                    <div class="signup-button">
+                        <button class="signup-button" type="submit" className="btn btn-custom" onClick={this.handleSignup}>Submit</button>
+                    </div>
+                    
                 </div>  
             </div>   
             </form>

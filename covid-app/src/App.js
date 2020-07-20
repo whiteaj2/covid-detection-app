@@ -14,10 +14,6 @@ import logo from '../src/images/logo-2.png';
 
 import './App.css';
 
-function handleSearch () {
-  fetch("/handleSearch", {method: "POST"}).then(res => {return res.json();}).then(data => console.log(data));
-}
-
 function App() {
 
   return (
@@ -27,11 +23,6 @@ function App() {
       <a class="navbar-brand font-weight-bold" href={"/map"}>
         <img src={logo} height="35" alt="logo" /> EVERYTHING COVID-19
       </a>
-
-    
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleSearch}>Search</button>
-  
 
         <div className="container">
           
