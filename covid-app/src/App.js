@@ -21,7 +21,7 @@ function App() {
     <Router>
     <div className="App">
     <nav className="navbar navbar-expand-lg navbar-light fixed-top "  >
-    <a class="navbar-brand" href={"/map"}>COVID DETECTION</a>
+    <a class="navbar-brand" href={"/map"}>Everything COVID-19</a>
 
     
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>

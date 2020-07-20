@@ -18,14 +18,25 @@ cursor = cnx.cursor()
 #sql="ALTER TABLE User_pre DROP User_pre_fk0;"
 #sql="DROP TABLE User_pre;"
 #sql="DROP TABLE User_location;"
-sql="DROP TABLE User;"
-
-
-#sql="CREATE TABLE User_pre (	u_p_id INT(10) NOT NULL AUTO_INCREMENT,	user_id INT(10) NOT NULL,	pre_id INT(10) NOT NULL,	PRIMARY KEY (u_p_id));"
-#sql="CREATE TABLE User_location (	l_c_id INT(10) NOT NULL AUTO_INCREMENT,	user_id INT(10) NOT NULL,	location_id INT(10) NOT NULL,	PRIMARY KEY (l_c_id));"
-#sql="ALTER TABLE User_pre ADD CONSTRAINT User_pre_fk0 FOREIGN KEY (user_id) REFERENCES User(user_id);"
-#sql="ALTER TABLE User_pre ADD CONSTRAINT User_pre_fk1 FOREIGN KEY (pre_id) REFERENCES Prescreening(pre_id);"
-#sql="ALTER TABLE User_location ADD CONSTRAINT User_location_fk0 FOREIGN KEY (user_id) REFERENCES User(user_id);"
+#sql="DROP TABLE User;"
+#sql="ALTER TABLE Users ADD userID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY ;"
+#sql="DROP TABLE User_pre;"
+#---sql="ALTER TABLE User_pre ADD FOREIGN KEY (userID) REFERENCES Users(userID);"
+#sql="CREATE TABLE User_pre (u_p_id INT(10) NOT NULL AUTO_INCREMENT,	userID INT NOT NULL,	pre_id INT(10) NOT NULL,	PRIMARY KEY (u_p_id));"
+#sql="CREATE TABLE User_location (	l_c_id INT(10) NOT NULL AUTO_INCREMENT,	userID INT NOT NULL,	location_id INT(10) NOT NULL,	PRIMARY KEY (l_c_id));"
+#sql="ALTER TABLE User_pre ADD CONSTRAINT User_pre_fk0 FOREIGN KEY (userID) REFERENCES Users(userID);"
+##sql="ALTER TABLE User_pre ADD CONSTRAINT User_pre_fk1 FOREIGN KEY (pre_id) REFERENCES Prescreening(pre_id);"
+##sql="ALTER TABLE User_location ADD CONSTRAINT User_location_fk0 FOREIGN KEY (userID) REFERENCES Users(userID);"
 #sql="ALTER TABLE User_location ADD CONSTRAINT User_location_fk1 FOREIGN KEY (location_id) REFERENCES Location(location_id);"
+#sql="DESCRIBE User_pre;"
+#sql="DROP TABLE User_pre;" 
 
-cursor.execute(sql)
+#sql="CREATE TABLE User_pre (u_p_id INT(10) NOT NULL AUTO_INCREMENT,	userID INT NOT NULL, pre_id INT(10) NOT NULL, PRIMARY KEY (u_p_id), FOREIGN KEY (userID) REFERENCES Users(userID),	FOREIGN KEY (pre_id) REFERENCES Prescreening(pre_id)) ;"
+#sql="DROP TABLE User_location;"
+
+#sql="CREATE TABLE User_location (u_l_id INT(10) NOT NULL AUTO_INCREMENT,	userID INT NOT NULL, location_id INT(10) NOT NULL, PRIMARY KEY (u_l_id), FOREIGN KEY (userID) REFERENCES Users(userID),	FOREIGN KEY (location_id) REFERENCES Location(location_id)) ;"
+
+#sql="DESC User_location;"
+#cursor.execute(sql)
+#rec=cursor.fetchall()
+#print(rec)
