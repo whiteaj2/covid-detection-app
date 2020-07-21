@@ -43,8 +43,11 @@ def handleSignup():
     address = data["address"]
     phone = data["phone"]
 
+    returnData = {}
+
     if(email != confirmEmail):
-        return json.dumps("{'status': 'failure'}")
+        returnData["status"] = "failure"
+        return json.dumps(returnData)
 
     cursor = cnx.cursor()
 
@@ -58,8 +61,8 @@ def handleSignup():
         print("Error: ", e)
         sys.stdout.flush()
 
-
-    return json.dumps("{'status': 'success'}")
+    returnData["status"] = "success"
+    return json.dumps(returnData)
 
 
 if __name__ == '__main__':

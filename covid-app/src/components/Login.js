@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import image form "./images/name.jpg"
+import React, { Component } from 'react';
+import Cookies from "universal-cookie";
+import {Redirect} from "react-router-dom";
 
 export class Login extends Component {
 
@@ -9,8 +10,15 @@ export class Login extends Component {
 
     state = {
         email: "",
-        password: ""
+        password: "",
+        redirect: false
     }
+
+    renderRedirect = () => {
+        if(this.state.redirect) {
+            return <Redirect to="/Map" />;
+        }
+    };
 
     updateEmail = (event) => {this.setState({email: event.target.value})};
     updatePassword = (event) => {this.setState({password: event.target.value})};
@@ -26,7 +34,8 @@ export class Login extends Component {
                                                                         } else if (jsonData.flag == 2) {
                                                                             alert("Incorrect password")
                                                                         } else {
-                                                                            alert("Successful Login")
+                                                                            this.setState({redirect: true});
+                                                                            alert("Successful Login");
                                                                         }
                                                                     });
     };
@@ -34,6 +43,7 @@ export class Login extends Component {
     render() {
         return (
             <form><br/><br/><br/>
+                {this.renderRedirect()}
                 <div class="card card-login">
                     <h2>Log In</h2><br/>
                     <div className="form-group">

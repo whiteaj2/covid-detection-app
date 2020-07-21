@@ -1,9 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Cookies from "universal-cookie";
+import {Redirect} from "react-router-dom";
 
 export class Signup extends Component {
   constructor(props) {
     super(props)
   }
+
+  cookies = new Cookies();
 
     state = {
       fname: "",
@@ -13,8 +17,15 @@ export class Signup extends Component {
       password: "",
       uname: "",
       address: "",
-      phone: ""
+      phone: "",
+      redirect: false
     }
+
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        return <Redirect to="/Login" />;
+      }
+    };
 
     handleSignup = (event) => {
         event.preventDefault();
@@ -27,6 +38,14 @@ export class Signup extends Component {
                                                                       address: this.state.address,
                                                                       phone: this.state.phone})})
         .then(res => {return res.json()})
+        .then(data => {
+            if (data.status == "success") {
+              this.setState({redirect: true});
+              alert("Sign up was successful!");
+            } else {
+              alert("Failed to register");
+            }
+        })
     }
 
     updateFirstName = (event) => {this.setState({fname: event.target.value})};
@@ -40,7 +59,7 @@ export class Signup extends Component {
 
     render() {
         return (<form><br/><br/><br/>
-             
+             {this.renderRedirect()}
             <div className="card card-signup">
                <h2>Sign Up</h2>
                 <div className="form-group">
