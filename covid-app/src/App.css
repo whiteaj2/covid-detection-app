@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  margin: 0 auto;
+  height: 100vh;
 }
 
 .App-logo {
@@ -24,6 +25,28 @@
   color: white;
 }
 
+.navbar {
+  text-align: center;
+  background-color: rgb(210, 202, 240);
+  font-size: small;
+}
+.btn btn-outline-success my-2 my-sm-0{
+width: 30px; 
+height: 50px;
+}
+
+.navbar .navbar-brand {
+  color: #b6545c;
+}
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+}
+
+
 .App-link {
   color: #61dafb;
 }
@@ -41,6 +64,7 @@
 .btn-custom {
   background-color: #b6545c;
   color: #F4F7F7;
+  width: 100px;
 }
 
 .btn-custom:hover {
@@ -51,6 +75,7 @@
 .btn-outline-success {
   border-color: #6c9454;
   color: #6c9454;
+  background-color: white;
 }
 
 .btn-outline-success:hover { 
@@ -59,22 +84,65 @@
 
 
 
-/* LOGIN PAGE */ 
+body {
+  background-image: url(images/triangle-mosaic.png);
+}
 
+
+/* HOME PAGE */
+
+.jumbotron {
+  background: none;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.card-deck {
+  margin: 50px 100px;
+  text-align: center;
+}
+
+.card-pic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 10px 10px rgb(47, 41, 70);
+  text-align: center;
+}
+
+.card .btn-custom {
+  color: white;
+}
+
+.card .btn-custom:hover {
+  color: white;
+}
+
+.card a {
+  margin: auto 20px;
+}
+
+
+/* LOGIN PAGE */ 
 .card-login {
   width: 500px;
-  height: 450px;
   padding: 30px;
   margin: 0 auto;
   float: none; 
   margin-top: 50px; 
   border-radius: 15px;
   box-shadow: 10px 10px rgb(47, 41, 70);
+  text-align: center;
 }
 
 .card-login h2 {
   color: #2F2946;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .form-group {
@@ -82,11 +150,11 @@
 }
 
 .login-buttons button {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .login-buttons p {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .login-buttons a {
@@ -104,19 +172,23 @@
 /* SIGN UP PAGE */
 
 .card-signup {
-  width: 500px;
-  height: 450px;
+  width: 600px;
   padding: 30px;
   margin: 0 auto;
   float: none; 
   margin-top: 50px; 
   border-radius: 15px;
   box-shadow: 10px 10px rgb(47, 41, 70);
+  text-align: center;
 }
 
 .card-signup h2 {
   color: #2F2946;
   font-weight: bold;
+}
+
+.card-signup input {
+  margin-bottom: 7px;
 }
 
 .card-signup button {
@@ -125,7 +197,6 @@
 }
 
 /* PRE-SCREEN PAGE */ 
-
 .card-screen {
   width: 900px;
   padding: 30px;
@@ -137,9 +208,23 @@
   box-shadow: 10px 10px rgb(47, 41, 70, 0.2);
 }
 
+.card-screen h4 {
+  text-align: center;
+}
+
+#screen-info {
+  text-align: center;
+}
+
+
 #screen-title {
   margin: 50px auto 0px auto;
   font-weight: bold;
+  text-align: center;
+}
+
+.address {
+  padding-bottom: 20px;
 }
 
 #address-title {
@@ -153,6 +238,12 @@
 .screen p {
   font-weight: bold;
   margin-top: 30px;
+}
+
+#screen-p {
+  padding-right: 120px;
+  padding-left: 120px;
+  padding-top: 20px;
 }
 
 .screen {
@@ -173,5 +264,14 @@
 .address {
   width: 600px;
   margin: 0 auto;
+}
+
+#loc-label {
+  font-weight: bold;
+  padding-top: 30px;
+}
+
+.login-buttons {
+  text-align: center;
 }
 

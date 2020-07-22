@@ -14,8 +14,20 @@ export class Login extends Component {
     updateEmail = (event) => {this.setState({email: event.target.value})};
     updatePassword = (event) => {this.setState({password: event.target.value})};
 
-    handleSubmit = () => {
-        fetch("/handleSubmit", {method: "POST", body: JSON.stringify({email: this.state.email, password: this.state.password}) }).then(res => {return res.json()});
+    handleSubmit = (event) => {
+        event.preventDefault();
+        fetch("/handleSubmit", {method: "POST", body: JSON.stringify({email: this.state.email,
+                                                                      password: this.state.password})})
+                                                                    .then(res => {return res.json()})
+                                                                    .then(jsonData => {
+                                                                        if (jsonData.flag == 1) {
+                                                                            alert("Email not linked with an account")
+                                                                        } else if (jsonData.flag == 2) {
+                                                                            alert("Incorrect password")
+                                                                        } else {
+                                                                            alert("Successful Login")
+                                                                        }
+                                                                    });
     };
 
     render() {
@@ -42,8 +54,7 @@ export class Login extends Component {
                         </div>
                     </div>
                     <div className="login-buttons">
-                        <button type="submit" className="btn btn-custom">Log In</button><br/>
-                        <p><a href="#">Forgot your password?</a></p>
+                        <button type="submit" className="btn btn-custom" onClick={this.handleSubmit}>Log In</button><br/>
                     </div>
                 </div> 
             </form>
