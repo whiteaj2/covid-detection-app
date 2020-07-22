@@ -76,13 +76,89 @@ cursor = cnx.cursor()
 #cursor.callproc("InsertUser", args)
 #cnx.commit()
 
-uname = "newemail4@something.com"
-password = "password"
-args = (uname, password, 0)
+#uname = "newemail4@something.com"
+#password = "password"
+#args = (uname, password, 0)
 
-res = cursor.callproc("auth", args)
-for thing in res:
-	print(thing)
+
+#cursor.execute("DROP TABLE testingCenter;")
+#cnx.commit()
+#cursor.execute("""
+#CREATE TABLE testingCenter (
+#	centerID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+#	name VARCHAR(100),
+#	latitude DECIMAL(10, 8) NOT NULL,
+#	longitude DECIMAL(10, 8) NOT NULL,
+#	address VARCHAR(255) NOT NULL,
+#	scheduling VARCHAR(255),
+#	hours VARCHAR(255),
+#	requiresPreScreening BIT(1) NOT NULL,
+#	eighteenAndOver BIT(1) NOT NULL,
+#	symptomatic BIT(1) NOT NULL,
+#	doctorsNote BIT(1) NOT NULL,
+#	exposure BIT(1) NOT NULL,
+#	essentialWorker BIT(1) NOT NULL,
+#	pregnant BIT(1) NOT NULL,
+#	over65 BIT(1) NOT NULL,
+#	highRisk BIT(1) NOT NULL,
+#	payment VARCHAR(255) NOT NULL,
+#	contactInfo VARCHAR(255) NOT NULL,
+#	testResults VARCHAR(255) NOT NULL
+#);
+#	""")
+#cnx.commit()
+
+queryString = """INSERT INTO testingCenter(name,
+										   latitude,
+										   longitude,
+										   address,
+										   scheduling,
+										   hours,
+										   requiresPreScreening,
+										   eighteenAndOver,
+										   symptomatic,
+										   doctorsNote,
+										   exposure,
+										   essentialWorker,
+										   pregnant,
+										   over65,
+										   highRisk,
+										   payment,
+										   contactInfo,
+										   testResults
+										   )
+				VALUES ('{}',{},{},'{}','{}','{}',{},{},{},{},{},{},{},{},{},'{}','{}','{}');"""
+
+cursor.execute(queryString.format("CVS Pharmacy",
+		39.8112378,
+		-86.3105394,
+		"8330 Crawfordsville Road, Indianapolis, IN 46234",
+		"by appointment via web",
+		"starts Friday May 22",
+		1, #requiresPreScreening
+		1, #eighteenAndOver
+		0, #symptomatic
+		0, #doctorsNote
+		0, #exposure
+		0, #essentialWorker
+		0, #pregnant
+		0, #over65
+		0, #highRisk
+		"""bring insurance info
+		should not have out-of-pocket costs, check with your health plan to confirm
+		if not insurance, social security number, license or state ID""",
+		"No contact Info available",
+		"emailed to link in MyChart"))
+cnx.commit()
+
+#cursor.execute("SELECT name FROM testingCenter;")
+#records = cursor.fetchall()
+#for row in records:
+#	print(row)
+
+#res = cursor.callproc("auth", args)
+#for thing in res:
+#	print(thing)
 #cursor.execute("""SELECT * FROM Users;""")
 #records = cursor.fetchall()
 
