@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Cookies from "universal-cookie";
 import {Redirect} from "react-router-dom";
 
+const cookies = new Cookies();
+
 export class Signup extends Component {
   constructor(props) {
     super(props)
   }
-
-  cookies = new Cookies();
 
     state = {
       fname: "",
@@ -18,6 +18,7 @@ export class Signup extends Component {
       uname: "",
       address: "",
       phone: "",
+      authenticatedEmail: cookies.get("authenticatedEmail"),
       redirect: false
     }
 

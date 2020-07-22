@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Cookies from "universal-cookie";
 import {Redirect} from "react-router-dom";
 
+const cookies = new Cookies();
+
 export class Login extends Component {
 
     constructor(props) {
@@ -11,7 +13,14 @@ export class Login extends Component {
     state = {
         email: "",
         password: "",
+        authenticatedEmail: cookies.get("authenticatedEmail"),
         redirect: false
+    }
+
+    preRender = () => {
+        if(this.state.authenticatedEmail != null) {
+            return <h2>You're already logged in!</h2>
+        }
     }
 
     renderRedirect = () => {
@@ -34,6 +43,8 @@ export class Login extends Component {
                                                                         } else if (jsonData.flag == 2) {
                                                                             alert("Incorrect password")
                                                                         } else {
+                                                                            cookies.set("authenticatedEmail", this.state.email, {path: "/",
+                                                                                                                                 maxAge: 300})
                                                                             this.setState({redirect: true});
                                                                             alert("Successful Login");
                                                                         }
@@ -43,6 +54,7 @@ export class Login extends Component {
     render() {
         return (
             <form><br/><br/><br/>
+                {this.preRender()}
                 {this.renderRedirect()}
                 <div class="card card-login">
                     <h2>Log In</h2><br/>

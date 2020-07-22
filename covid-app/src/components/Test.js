@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export class Test extends Component {
     render() {
