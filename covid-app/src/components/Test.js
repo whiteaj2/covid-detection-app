@@ -69,6 +69,9 @@ export class Test extends Component {
         let checkedBoxes = document.querySelectorAll('input[name=c]:checked');
         let totalLength=checkedBoxes.length
         alert('You have '+totalLength+' out of 11 symptoms')
+        //var res=`you have ${totalLength} out of 11 symptoms`;
+        
+    
         this.setState({ score: totalLength })
 
         fetch("/handleTest", {method: "POST", body: JSON.stringify({age_18: this.state.age_18,
@@ -119,7 +122,8 @@ export class Test extends Component {
                                                                     loc_3_city: this.state.loc_3_city ,
                                                                     loc_3_state: this.state.loc_3_state ,
                                                                     loc_3_zip: this.state.loc_3_zip,
-                                                                    score: this.state.score
+                                                                    score: this.state.score,
+                                                                    authenticatedEmail:this.state.authenticatedEmail
                                                                     
 
 
