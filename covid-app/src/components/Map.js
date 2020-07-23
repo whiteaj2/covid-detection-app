@@ -64,7 +64,20 @@ onClose = props => {
             <div class="about-us jumbotron jumbotron-fluid">
                 <div class="container">
                     <h2 class="display-5 font-weight-bold">ABOUT US</h2>
-                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                    <p class="lead">
+                        We used testing center information from the Indiana State Department of Health to create a 
+                        pre-screening form that allows you to quickly find which centers at which you qualify for testing in Marion County.
+                    </p>
+                    <p class="lead">
+                        Along with providing you testing center information, we rely on your help to populate our COVID-19 visualization map
+                        of Indiana. By providing your last known whereabouts, we are able to show which areas of Indiana have the potential to 
+                        become COVID-19 hotspots. Your data is kept completely anonymous, and it helps us all be able to see what is happening in
+                        our state so we can better protect our families.  
+                    </p>
+                 
+                    
+                    
+                    
                 </div>
             </div>
 

@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
-import About from './components/About';
 import Test from './components/Test';
 import Main from './components/Map';
 
@@ -43,9 +42,6 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to={"/Signup"}>Sign up</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/About"}>About</Link>
-              </li>
             
             </ul>
           </div>
@@ -57,11 +53,10 @@ function App() {
       <div className="auth-wrapper">
         <div className="auth-inner">
           <Switch>
-            <Route exact path='/' component={Login} />
+            <Route exact path='/' component={Main} />
             <Route path="/Login" component={Login} />
             <Route path="/Signup" component={Signup} />
             <Route path="/Test" component={Test} />
-            <Route path="/About" component={About} />
             <Route path="/Home" component={Home} />
             <Route path="/Map" component={Main} />
           </Switch>
