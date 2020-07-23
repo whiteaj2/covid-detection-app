@@ -56,7 +56,6 @@ export class Login extends Component {
                     </div>
                     <div className="login-buttons">
                         <button type="submit" className="btn btn-custom" onClick={this.handleSubmit}>Log In</button><br/>
-                        <p><a href="#">Forgot your password?</a></p>
                     </div>
                 </div> 
             </form>

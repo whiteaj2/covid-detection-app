@@ -26,12 +26,24 @@
   color: white;
 }
 
+.navbar {
+  text-align: center;
+  background-color: rgb(210, 202, 240);
+  font-size: small;
+}
+.btn btn-outline-success my-2 my-sm-0{
+width: 30px; 
+height: 50px;
+}
+
+.navbar .navbar-brand {
+  color: #b6545c;
+}
 .footer {
   font-size: 12px;
   text-align: center;
   background-color: white;
   padding: 10px;
-
 }
 
 
@@ -52,6 +64,7 @@
 .btn-custom {
   background-color: #b6545c;
   color: #F4F7F7;
+  width: 100px;
 }
 
 .btn-custom:hover {
@@ -77,12 +90,40 @@ body {
 
 
 /* HOME PAGE */
-.jumbotron .container {
-  text-align: left;
+
+.jumbotron {
+  background: none;
+  margin-top: 100px;
+  text-align: center;
 }
 
 .card-deck {
   margin: 50px 100px;
+  text-align: center;
+}
+
+.card-pic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 10px 10px rgb(47, 41, 70);
+  text-align: center;
+}
+
+.card .btn-custom {
+  color: white;
+}
+
+.card .btn-custom:hover {
+  color: white;
+}
+
+.card a {
+  margin: auto 20px;
 }
 
 /* LOGIN PAGE */ 
@@ -94,6 +135,7 @@ body {
   margin-top: 50px; 
   border-radius: 15px;
   box-shadow: 10px 10px rgb(47, 41, 70);
+  text-align: center;
 }
 
 .card-login h2 {
@@ -136,6 +178,7 @@ body {
   margin-top: 50px; 
   border-radius: 15px;
   box-shadow: 10px 10px rgb(47, 41, 70);
+  text-align: center;
 }
 
 .card-signup h2 {
@@ -164,9 +207,23 @@ body {
   box-shadow: 10px 10px rgb(47, 41, 70, 0.2);
 }
 
+.card-screen h4 {
+  text-align: center;
+}
+
+#screen-info {
+  text-align: center;
+}
+
+
 #screen-title {
   margin: 50px auto 0px auto;
   font-weight: bold;
+  text-align: center;
+}
+
+.address {
+  padding-bottom: 20px;
 }
 
 #address-title {
@@ -180,6 +237,12 @@ body {
 .screen p {
   font-weight: bold;
   margin-top: 30px;
+}
+
+#screen-p {
+  padding-right: 120px;
+  padding-left: 120px;
+  padding-top: 20px;
 }
 
 .screen {
@@ -200,5 +263,14 @@ body {
 .address {
   width: 600px;
   margin: 0 auto;
+}
+
+#loc-label {
+  font-weight: bold;
+  padding-top: 30px;
+}
+
+.login-buttons {
+  text-align: center;
 }
 
