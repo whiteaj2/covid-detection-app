@@ -9,12 +9,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Test from './components/Test';
 import Main from './components/Map';
-<<<<<<< HEAD
-=======
-
 import logo from '../src/images/logo-2.png';
->>>>>>> origin/branch_PrescreenDb
-
 import './App.css';
 
 function handleSearch () {
