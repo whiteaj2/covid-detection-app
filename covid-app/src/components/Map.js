@@ -33,47 +33,31 @@ onClose = props => {
         <div class="wrapper">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">Covid Detection Title</h1>
-                    <p class="lead">This is the subtitle.</p>
                     <h1 class="display-3 font-weight-bold">Everything COVID-19</h1>
                     <p class="lead">Find a COVID-19 testing center you qualify for and contribute to our visualization map tracking the pandemic in Indianapolis. </p>
                 </div>
             </div>
 
             <div class="card-deck">
-                
                 <div class="card">
-                    <img src={image} alt="Card image cap"/>
-                    <div class="card-body">
-                    <h5 class="card-title">Find Your Testing Center</h5>
-                    <p class="card-text">Text</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="" alt="Card image cap"/>
-                    <div class="card-body">
-                    <h5 class="card-title">Visualize Data</h5>
                     <img class="card-pic" src={one} width="150" alt="One"/>
                     <div class="card-body">
-                    <h5 class="card-title">Login or create your account</h5>
-                    <a class="btn btn-custom" role="button">Sign Up</a>
+                            <h5 class="card-title">Login or create your account</h5>
+                            <a class="btn btn-custom" role="button">Sign Up</a>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-pic" src={two} width="150" alt="Two"/>
                     <div class="card-body">
-                    <h5 class="card-title">Fill out our quick screen to find your testing center</h5>
-                    <p class="card-text">Text</p>
+                        <h5 class="card-title">Fill out our quick screen to find your testing center</h5>
+                        <p class="card-text">Text</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="" alt="Card image cap"/>
-                    <div class="card-body">
-                    <h5 class="card-title">Voluntary & Secure</h5>
                     <img class="card-pic" src={three} width="150" alt="Three"/>
                     <div class="card-body">
-                    <h5 class="card-title">Let us know how your test turned out and help us track the pandemic in Indianpolis</h5>
-                    <p class="card-text">Text</p>
+                        <h5 class="card-title">Let us know how your test turned out and help us track the pandemic in Indianpolis</h5>
+                        <p class="card-text">Text</p>
                     </div>
                 </div>
             </div>
