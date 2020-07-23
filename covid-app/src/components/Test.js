@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export class Test extends Component {
     constructor(props) {
@@ -56,11 +59,9 @@ export class Test extends Component {
         loc_3_city:"",
         loc_3_state:"",
         loc_3_zip:"",
-        score:""
-        
+        score:"",
+        authenticatedEmail: cookies.get("authenticatedEmail")
     }
-
-    
 
     handleTest = (event) => {
         event.preventDefault();

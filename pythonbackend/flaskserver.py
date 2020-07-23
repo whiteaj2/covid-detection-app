@@ -43,8 +43,11 @@ def handleSignup():
     address = data["address"]
     phone = data["phone"]
 
+    returnData = {}
+
     if(email != confirmEmail):
-        return json.dumps("{'status': 'failure'}")
+        returnData["status"] = "failure"
+        return json.dumps(returnData)
 
     cursor = cnx.cursor()
 
@@ -58,8 +61,8 @@ def handleSignup():
         print("Error: ", e)
         sys.stdout.flush()
 
-
-    return json.dumps("{'status': 'success'}")
+    returnData["status"] = "success"
+    return json.dumps(returnData)
 
 @app.route("/handleTest", methods=["POST"])
 def handleTest():
@@ -114,6 +117,8 @@ def handleTest():
     loc_3_zip = data["loc_3_zip"]
     score=int(data["score"])
 
+    returnData = {}
+
     if zip=="":
         zip=int("0000")
 
@@ -138,7 +143,9 @@ def handleTest():
         print("Error: ", e)
         sys.stdout.flush()
 
-    return json.dumps("{'status': 'success'}")
+
+    returnData["status"] = "success"
+    return json.dumps(returnData)
 
 if __name__ == '__main__':
     app.run(debug=True, host="127.0.0.1", port=3000)
