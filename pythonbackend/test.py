@@ -80,9 +80,9 @@ cursor = cnx.cursor()
 #password = "password"
 #args = (uname, password, 0)
 
-res = cursor.callproc("auth", args)
-for thing in res:
-	print(thing)
+#res = cursor.callproc("auth", args)
+#for thing in res:
+#	print(thing)
 ###args = (uname, password, 0)
 
 ####res = cursor.callproc("auth", args)
@@ -137,41 +137,46 @@ queryString = """INSERT INTO testingCenter(name,
 										   )
 				VALUES ('{}',{},{},'{}','{}','{}',{},{},{},{},{},{},{},{},{},'{}','{}','{}');"""
 
-cursor.execute(queryString.format("CVS Pharmacy",
-		39.8112378,
-		-86.3105394,
-		"8330 Crawfordsville Road, Indianapolis, IN 46234",
+cmdString = queryString.format("Walmart Parking Lot - West 86th",
+		39.9102408,
+		-86.2187705,
+		"3221 W 86th St, Indianapolis, IN 46268",
 		"by appointment via web",
-		"starts Friday May 22",
-		1, #requiresPreScreening
-		1, #eighteenAndOver
-		0, #symptomatic
+		"""Mon, Wed, Fri 7am-9am""",
+		0, #requiresPreScreening
+		0, #eighteenAndOver
+		1, #symptomatic
 		0, #doctorsNote
 		0, #exposure
-		0, #essentialWorker
+		1, #essentialWorker
 		0, #pregnant
 		0, #over65
-		0, #highRisk
-		"""bring insurance info
-		should not have out-of-pocket costs, check with your health plan to confirm
-		if not insurance, social security number, license or state ID""",
-		"No contact Info available",
-		"emailed to link in MyChart"))
-cnx.commit()
+		1, #highRisk
+		"""No payment necessary""",
+		"""800-635-8611""",
+		"""via web, or
+receive text or email when available """)
 
-#cursor.execute("SELECT name FROM testingCenter;")
-#records = cursor.fetchall()
-#for row in records:
-#	print(row)
+#cursor.execute(cmdString)
+#cnx.commit()
+
+#cursor.execute("""SELECT age_18, age_65, weakened_immune_system,
+#						 pregnant, essential_healthcare_worker,
+#						 close_contact,official_consent,score
+#				  FROM Prescreening""")
+#cursor.execute("describe Prescreening")
+
+#cursor.execute("""DELETE From testingCenter WHERE centerID > 30""")
+#cnx.commit()
 
 #res = cursor.callproc("auth", args)
 #for thing in res:
 #	print(thing)
-#cursor.execute("""SELECT * FROM Users;""")
-#records = cursor.fetchall()
+cursor.execute("""SELECT COUNT(*) FROM testingCenter""")
+records = cursor.fetchall()
 
-#for row in records:
-#	print(row)
+for row in records:
+	print(row)
 
 #cursor.execute(""" CREATE PROCEDURE InsertUser(
 #						IN uname_in VARCHAR(255), 

@@ -60,16 +60,18 @@ export class Test extends Component {
         loc_3_state:"",
         loc_3_zip:"",
         score:"",
-        authenticatedEmail: cookies.get("authenticatedEmail")
+        authenticatedEmail: cookies.get("authenticatedEmail"),
+        queryResults: null
     }
 
     handleTest = (event) => {
         event.preventDefault();
 
         let checkedBoxes = document.querySelectorAll('input[name=c]:checked');
-        let totalLength=checkedBoxes.length
-        alert('You have '+totalLength+' out of 11 symptoms')
-        this.setState({ score: totalLength })
+        let totalLength=checkedBoxes.length;
+
+        alert('You have '+totalLength+' out of 11 symptoms');
+        this.setState({ score: totalLength });
 
         fetch("/handleTest", {method: "POST", body: JSON.stringify({age_18: this.state.age_18,
                                                                     age_65: this.state.age_65,
@@ -119,13 +121,42 @@ export class Test extends Component {
                                                                     loc_3_city: this.state.loc_3_city ,
                                                                     loc_3_state: this.state.loc_3_state ,
                                                                     loc_3_zip: this.state.loc_3_zip,
-                                                                    score: this.state.score
+                                                                    score: totalLength,
+                                                                    authenticatedEmail: this.state.authenticatedEmail
                                                                     
-
-
                                                                     })})
-                                                        .then(res => {return res.json()})
-                                                        
+                                                        .then(res => {return res.json()}).then(res => {
+
+        let highRisk = (this.state.asthma_lung ||
+                       this.state.diabetes ||
+                       this.state.obesity ||
+                       this.state.cirrhosis ||
+                       this.state.heart_condition ||
+                       this.state.harder_cough_disease ||
+                       this.state.kidney_renal_disease ||
+                       this.state.weakened_immune_system) ? 1 : 0;
+        let symptomatic = totalLength > 0 ? 1 : 0;
+        let over18 = this.state.age_18 == "yes" ? 1 : 0;
+        let over65 = this.state.age_65 == "yes" ? 1 : 0;
+        let exposure = this.state.close_contact == "yes" ? 1 : 0;
+        let doctorsNote = this.state.official_consent == "yes" ? 1 : 0;
+        let pregnant = this.state.pregnant == "yes" ? 1 : 0;
+        let essentialWorker = this.state.essential_healthcare_worker == "yes" ? 1 : 0;
+
+        fetch("/getTestingSites", {method: "POST", body: JSON.stringify({highRisk: highRisk,
+                                                                         symptomatic: symptomatic,
+                                                                         over18: over18,
+                                                                         over65: over65,
+                                                                         exposure: exposure,
+                                                                         doctorsNote: doctorsNote,
+                                                                         pregnant: pregnant,
+                                                                         essentialWorker: essentialWorker})})
+        .then(returnData => {return returnData.json()})
+        .then(returnedJson => {
+            this.setState({queryResults: returnedJson})
+        });
+
+        });
                                                         
 
                                                         }
@@ -137,6 +168,7 @@ export class Test extends Component {
     updateAge_65 = (event) => {this.setState({age_65: event.target.value})};
     updateClose_contact = (event) => {this.setState({close_contact: event.target.value})}
     updateOfficial_consent = (event) => {this.setState({official_consent: event.target.value})};
+    
     updateFever = () => {this.setState(prevState => ({fever: !prevState.fever}));};
     updateCough = () => {this.setState(prevState => ({cough: !prevState.cough}));};
     updateBreathing = () => {this.setState(prevState => ({breathing: !prevState.breathing}));};
@@ -148,6 +180,7 @@ export class Test extends Component {
     updateTaste_smell = () => {this.setState(prevState => ({taste_smell: !prevState.taste_smell}));};
     updateVomiting = () => {this.setState(prevState => ({vomiting: !prevState.vomiting}));};
     updateDiarrhea = () => {this.setState(prevState => ({diarrhea: !prevState.diarrhea}));};
+    
     updateAsthma_lung = () => {this.setState(prevState => ({asthma_lung: !prevState.asthma_lung}));};
     updateDiabetes = () => {this.setState(prevState => ({diabetes: !prevState.diabetes}));};
     updateObesity = () => {this.setState(prevState => ({obesity: !prevState.obesity}));};
@@ -156,6 +189,7 @@ export class Test extends Component {
     updateHarder_cough_disease = () => {this.setState(prevState => ({harder_cough_disease: !prevState.harder_cough_disease}));};
     updateKidney_renal_disease = () => {this.setState(prevState => ({kidney_renal_disease: !prevState.kidney_renal_disease}));};
     updateWeakened_immune_system = () => {this.setState(prevState => ({weakened_immune_system: !prevState.weakened_immune_system}));};
+    
     updatePregnant = (event) => {this.setState({pregnant: event.target.value})};
     updateEssential_healthcare_worker = (event) => {this.setState({essential_healthcare_worker: event.target.value})};
     updateAddress1 = (event) => {this.setState({address1: event.target.value})};
@@ -186,6 +220,33 @@ export class Test extends Component {
 
 
     render() {
+        if(this.state.queryResults != null) {
+            let testingCenters = this.state.queryResults.results;
+            console.log(testingCenters);
+
+            return (
+
+            <div className ="wrapper">
+            <br/><br/><br/>
+            <h2>Here are some testing centers that fit you:</h2>
+            {testingCenters.map(function(listItem){
+                return( <div className="card card-screen">
+                        <div className="screen">
+                            <div className="form-check">
+                                <h5 class="card-title"> {listItem.name}</h5>
+                                <p class="card-text"> {listItem.address}</p>
+                                <p class="card-text"> Payment Info: {listItem.payment}</p>
+                                <p class="card-text"> Scheduling Info: {listItem.scheduling}</p>
+                                <p class="card-text"> How will I receive test results?: {listItem.testResults}</p>
+                            </div>
+                       </div>
+                       </div>)
+            })
+            }
+            </div>
+
+            );
+        }
         return (
             <form><br/><br/><br/>
             <h2 id="screen-title">PRE-SCREENING FORM</h2><br/>
