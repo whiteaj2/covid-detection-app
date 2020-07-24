@@ -60,7 +60,8 @@ export class Test extends Component {
         loc_3_state:"",
         loc_3_zip:"",
         score:"",
-        authenticatedEmail: cookies.get("authenticatedEmail")
+        authenticatedEmail: cookies.get("authenticatedEmail"),
+        scoreshow:false
     }
 
     handleTest = (event) => {
@@ -68,12 +69,15 @@ export class Test extends Component {
 
         let checkedBoxes = document.querySelectorAll('input[name=c]:checked');
         let totalLength=checkedBoxes.length
-        alert('You have '+totalLength+' out of 11 symptoms') 
+        //alert('You have '+totalLength+' out of 11 symptoms') 
         
         //var res=`you have ${totalLength} out of 11 symptoms`;
         
     
         this.setState({ score: totalLength })
+        this.setState({scoreshow:true})
+
+        //return(<h2>{this.state.score}+out of 11</h2>)
 
         fetch("/handleTest", {method: "POST", body: JSON.stringify({age_18: this.state.age_18,
                                                                     age_65: this.state.age_65,
@@ -131,7 +135,7 @@ export class Test extends Component {
                                                                     })})
                                                         .then(res => {return res.json()})
                                                         
-                                                        //return(<h2>{this.state.score}+'out of 11'</h2>)
+                                                        
 
                                                         }
                                                          
@@ -532,6 +536,9 @@ export class Test extends Component {
                 <div className="login-buttons">
                         <button type="submit" className="btn btn-custom" onClick={this.handleTest}>Submit</button><br/>
                 </div>
+
+                {this.state.scoreshow?
+                <h6>{this.state.score} out of 11</h6> : <p> </p>}
 
             </div>
         </form>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Cookies from "universal-cookie";
+import { Link } from 'react-router-dom';
 
 const cookies = new Cookies();
 
@@ -20,12 +21,12 @@ export class TestResult extends Component {
             <div>
                 <div class="card">
                     <div class="card-body"><br/><br/><br/>
-                            <h2>Testing Results</h2><br/><br/>
-                            <h6 class="card-title">Login First If you did not</h6>
-                            <a href="/Login" class="btn btn-custom" role="button">Login</a>
-                            <br/><br/><br/>
+                            <h2>COVID RESULTS</h2><br/><br/>
+                            <br/><br/>
                             <h6 class="card-title">Share your results</h6>
-                            <a href="/Result" class="btn btn-custom" role="button">Results</a>
+                            <div className="login-buttons">
+                            <Link to="/Result" className="btn btn-custom" >Results</Link>                   
+                             </div>  <br/><br/><br/><br/><br/>
                     </div>
             </div>
             </div>

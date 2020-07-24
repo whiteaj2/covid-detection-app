@@ -57,10 +57,13 @@ cursor = cnx.cursor()
 #sql="CREATE TABLE Result (res_id INT(10) NOT NULL AUTO_INCREMENT, test_res VARCHAR(15),   PRIMARY KEY(res_id));"
 #sql="CREATE TABLE User_res (user_res_id INT(10) NOT NULL AUTO_INCREMENT,  userID INT NOT NULL, res_id INT(10) NOT NULL,  PRIMARY KEY(user_res_id), FOREIGN KEY (userID) REFERENCES Users(userID),	FOREIGN KEY (res_id) REFERENCES Result(res_id) );"
 
+#sql= "DROP TABLE Result;"
 
 
-sql="SELECT * from Result;"
-cursor.execute(sql)
-rec=cursor.fetchall()
+#sql="ALTER TABLE Prescreening ADD test_res VARCHAR(10) ;"
 
-print(rec)
+#sql="SELECT * from Prescreening;"
+#cursor.execute(sql)
+#rec=cursor.fetchall()
+
+#print(rec)

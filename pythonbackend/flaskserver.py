@@ -158,13 +158,16 @@ def handleRes():
     test_res=data["test_res"]
     authenticatedEmail=data["authenticatedEmail"]
 
+    #print(test_res)
+    #sys.stdout.flush()
+
     returnData = {}
 
     cursor = cnx.cursor()
     try:
         args=[test_res, authenticatedEmail]
         cursor.callproc("InsertResult", args) #Need to create this proc to insert testResult
-
+        
         cnx.commit()
         cursor.close()
 

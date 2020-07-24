@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Cookies from "universal-cookie";
+import {Redirect} from "react-router-dom";
+
+
 
 const cookies = new Cookies();
 
@@ -10,9 +13,24 @@ export class Result extends Component {
 
     state={
         test_res:"",
-        authenticatedEmail: cookies.get("authenticatedEmail")
+        authenticatedEmail: cookies.get("authenticatedEmail"),
+        redirect:false,
+        checking:false
 
     }
+    
+    preRender = () => {
+        if(this.state.authenticatedEmail == null) {
+            return <Redirect to="/Login"/>;
+        }
+    }
+
+    renderRedirect = () => {
+        if(this.state.checking) {
+            return <Redirect to="/Map" />;
+        }
+    };
+
 
     handleRes = (event) => {
         event.preventDefault();
@@ -21,12 +39,21 @@ export class Result extends Component {
                                                                 })})
                                                                 .then(res => {return res.json()})
 
-    }
-updatetest_res=(event)=>{this.setState({test_res:event.target.value})};
+                                                                this.setState({checking:true})
 
+                                                               
+
+    }
+//updatetest_res=(event)=>{this.setState({test_res:event.target.value})};
+
+
+updatetest_res = (event) => {this.setState({test_res: event.target.value})};
     render() {
         return (
+            
             <form>
+                {this.preRender()}
+                {this.renderRedirect()}
             <div>
                 <div class="card">
                     <div ><br/><br/><br/><br/>

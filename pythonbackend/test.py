@@ -272,23 +272,30 @@ cnx.commit()
 END;)
 """
 
-"""cursor.execute( CREATE PROCEDURE InsertResult(
+#cursor.execute(""" DROP PROCEDURE InsertResult; """)
+
+"""
+cursor.execute( CREATE PROCEDURE InsertResult(
 					IN test_res_in VARCHAR(10),
 					IN authenticatedEmail_in VARCHAR(100))
 
 				BEGIN
-							INSERT INTO Result (test_res)
-							VALUES (test_res_in);
-							SET @LID = LAST_INSERT_ID();
 
 
 							SELECT userID INTO @userIDin FROM Users where email= authenticatedEmail_in;
 
-				   			INSERT INTO User_res (userID, res_id)
-							VALUES (@userIDin,@LID);
+							SELECT MAX(pre_id) INTO @pre_id_in FROM User_pre where userID= @userIDin ;
+
+
+
+				   			UPDATE Prescreening SET test_res = test_res_in WHERE pre_id=@pre_id_in;
+							
 
 					END;)
 					"""
+
+					
+					
 		
 
 							

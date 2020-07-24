@@ -3,31 +3,27 @@ import image from "../images/icons8-find-hospital-96.png"
 import one from '../images/One 2.png';
 import two from '../images/Two 2.png';
 import three from '../images/Three 2.png';
+import Cookies from "universal-cookie";
+import { Link } from 'react-router-dom';
 
+const cookies = new Cookies();
 
 
 export class Main extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+
     state = {
-        showingInfoWindow: false,  //Hides or the shows the infoWindow
-        activeMarker: {},          //Shows the active marker upon click
-        selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
+        authenticatedEmail: cookies.get("authenticatedEmail")
       };
 
-      onMarkerClick = (props, marker, e) =>
-  this.setState({
-    selectedPlace: props,
-    activeMarker: marker,
-    showingInfoWindow: true
-  });
 
-onClose = props => {
-  if (this.state.showingInfoWindow) {
-    this.setState({
-      showingInfoWindow: false,
-      activeMarker: null
-    });
-  }
-};
+      handleRes = (event) => {
+        event.preventDefault();
+
+      }
 
     render() {
         return (
@@ -45,22 +41,28 @@ onClose = props => {
                     <img class="card-pic" src={one} width="150" alt="One"/>
                     <div class="card-body"><br/>
                             <h5 class="card-title">Login or create your account</h5><br/><br/>
-                            <a href="/Signup" class="btn btn-custom" role="button">Sign Up</a>
-                    </div>
+                            <div className="login-buttons">
+                            <Link to="/Signup" className="btn btn-custom" >Signup</Link>                   
+                             </div>                    </div>
                 </div>
                 <div class="card">
                     <img class="card-pic" src={two} width="150" alt="Two"/>
                     <div class="card-body">
                         <h5 class="card-title">Fill out our quick screen to find your testing center</h5>
                         <br/><br/>
-                        <a href="/Test" class="btn btn-custom" role="button">Testing Site</a>
-                    </div>
+                        <div className="login-buttons">
+                            <Link to="/Test" className="btn btn-custom" >Testing Site</Link>                   
+                             </div>                    </div>
                 </div>
                 <div class="card">
                     <img class="card-pic" src={three} width="150" alt="Three"/>
                     <div class="card-body">
                         <h5 class="card-title">Let us know how your test turned out and help us track the pandemic in Indianpolis</h5>
-                        <a href="/TestResult" class="btn btn-custom" role="button">Testing Results</a>
+                        
+                        
+                        <div className="login-buttons">
+                            <Link to="/TestResult" className="btn btn-custom" >Test Results</Link>                   
+                             </div>
                     </div>
                 </div>
             </div>
