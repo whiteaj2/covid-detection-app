@@ -68,7 +68,8 @@ export class Test extends Component {
 
         let checkedBoxes = document.querySelectorAll('input[name=c]:checked');
         let totalLength=checkedBoxes.length
-        alert('You have '+totalLength+' out of 11 symptoms')
+        alert('You have '+totalLength+' out of 11 symptoms') 
+        
         //var res=`you have ${totalLength} out of 11 symptoms`;
         
     
@@ -130,7 +131,7 @@ export class Test extends Component {
                                                                     })})
                                                         .then(res => {return res.json()})
                                                         
-                                                        
+                                                        //return(<h2>{this.state.score}+'out of 11'</h2>)
 
                                                         }
                                                          
@@ -193,7 +194,7 @@ export class Test extends Component {
         return (
             <form><br/><br/><br/>
             <h2 id="screen-title">PRE-SCREENING FORM</h2><br/>
-            <h2 id="screen-title">FIND A TESTING CENTER</h2><br/>
+            <h3 id="screen-title">FIND A TESTING CENTER</h3><br/>
             <p id="screen-info">Fill out our form to find which COVID-19 testing centers you qualify for in Marion County.</p>
             <div class="card card-screen">
                 

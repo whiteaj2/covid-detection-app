@@ -52,8 +52,14 @@ cursor = cnx.cursor()
 
 #sql="ALTER TABLE Prescreening ADD age_18  VARCHAR(10), ADD age_65  VARCHAR(10),ADD official_consent  VARCHAR(10), ADD close_contact  VARCHAR(10), ADD fever  VARCHAR(10), ADD cough  VARCHAR(10), ADD breathing  VARCHAR(10), ADD chills  VARCHAR(10), ADD shaking_chills  VARCHAR(10), ADD muscle_pain  VARCHAR(10), ADD headache  VARCHAR(10), ADD sore_throat  VARCHAR(10), ADD taste_smell  VARCHAR(10), ADD vomiting  VARCHAR(10), ADD diarrhea  VARCHAR(10), ADD asthma_lung  VARCHAR(10), ADD diabetes  VARCHAR(10), ADD obesity  VARCHAR(10), ADD cirrhosis  VARCHAR(10), ADD heart_condition  VARCHAR(10), ADD harder_cough_disease  VARCHAR(10), ADD kidney_renal_disease  VARCHAR(10), ADD weakened_immune_system  VARCHAR(10), ADD pregnant  VARCHAR(10), ADD essential_healthcare_worker VARCHAR(10) ;"
 #sql="ALTER TABLE Prescreening ADD score INT;"
-#sql="DESC Prescreening;"
-sql="SELECT * FROM Prescreening;"
+#sql="DESC Users;"
+
+#sql="CREATE TABLE Result (res_id INT(10) NOT NULL AUTO_INCREMENT, test_res VARCHAR(15),   PRIMARY KEY(res_id));"
+#sql="CREATE TABLE User_res (user_res_id INT(10) NOT NULL AUTO_INCREMENT,  userID INT NOT NULL, res_id INT(10) NOT NULL,  PRIMARY KEY(user_res_id), FOREIGN KEY (userID) REFERENCES Users(userID),	FOREIGN KEY (res_id) REFERENCES Result(res_id) );"
+
+
+
+sql="SELECT * from Result;"
 cursor.execute(sql)
 rec=cursor.fetchall()
 

@@ -7,8 +7,10 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
 import About from './components/About';
-import Test from './components/Test';
 import Main from './components/Map';
+import Test from './components/Test';
+import TestResult from './components/TestResult';
+import Result from './components/Result';
 import logo from '../src/images/logo-2.png';
 import './App.css';
 
@@ -71,6 +73,8 @@ function App() {
             <Route path="/About" component={About} />
             <Route path="/Home" component={Home} />
             <Route path="/Map" component={Main} />
+            <Route path="/TestResult" component={TestResult} />
+            <Route path="/Result" component={Result} />
           </Switch>
         </div>
       </div>

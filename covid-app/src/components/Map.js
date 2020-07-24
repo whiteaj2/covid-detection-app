@@ -4,6 +4,8 @@ import one from '../images/One 2.png';
 import two from '../images/Two 2.png';
 import three from '../images/Three 2.png';
 
+
+
 export class Main extends Component {
     state = {
         showingInfoWindow: false,  //Hides or the shows the infoWindow
@@ -41,23 +43,24 @@ onClose = props => {
             <div class="card-deck">
                 <div class="card">
                     <img class="card-pic" src={one} width="150" alt="One"/>
-                    <div class="card-body">
-                            <h5 class="card-title">Login or create your account</h5>
-                            <a class="btn btn-custom" role="button">Sign Up</a>
+                    <div class="card-body"><br/>
+                            <h5 class="card-title">Login or create your account</h5><br/><br/>
+                            <a href="/Signup" class="btn btn-custom" role="button">Sign Up</a>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-pic" src={two} width="150" alt="Two"/>
                     <div class="card-body">
                         <h5 class="card-title">Fill out our quick screen to find your testing center</h5>
-                        <p class="card-text">Text</p>
+                        <br/><br/>
+                        <a href="/Test" class="btn btn-custom" role="button">Testing Site</a>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-pic" src={three} width="150" alt="Three"/>
                     <div class="card-body">
                         <h5 class="card-title">Let us know how your test turned out and help us track the pandemic in Indianpolis</h5>
-                        <p class="card-text">Text</p>
+                        <a href="/TestResult" class="btn btn-custom" role="button">Testing Results</a>
                     </div>
                 </div>
             </div>

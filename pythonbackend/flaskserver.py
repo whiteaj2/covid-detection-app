@@ -116,8 +116,11 @@ def handleTest():
     loc_3_state = data["loc_3_state"]
     loc_3_zip = data["loc_3_zip"]
     score=int(data["score"])
+    authenticatedEmail=data["authenticatedEmail"]
+    
 
     returnData = {}
+
 
     if zip=="":
         zip=int("0000")
@@ -134,8 +137,9 @@ def handleTest():
 
     cursor = cnx.cursor()
     try:
-        args = [age_18, age_65, official_consent, close_contact, fever, cough, breathing, chills, shaking_chills, muscle_pain, headache, sore_throat, taste_smell, vomiting, diarrhea, asthma_lung, diabetes, obesity, cirrhosis, heart_condition, harder_cough_disease, kidney_renal_disease, weakened_immune_system, pregnant, essential_healthcare_worker, address1, address2, city, state, zip, loc_1_name, loc_1_address1, loc_1_address2, loc_1_city, loc_1_state, loc_1_zip, loc_2_name, loc_2_address1, loc_2_address2, loc_2_city, loc_2_state, loc_2_zip, loc_3_name, loc_3_address1, loc_3_address2, loc_3_city, loc_3_state, loc_3_zip, score]
+        args = [age_18, age_65, official_consent, close_contact, fever, cough, breathing, chills, shaking_chills, muscle_pain, headache, sore_throat, taste_smell, vomiting, diarrhea, asthma_lung, diabetes, obesity, cirrhosis, heart_condition, harder_cough_disease, kidney_renal_disease, weakened_immune_system, pregnant, essential_healthcare_worker, address1, address2, city, state, zip, loc_1_name, loc_1_address1, loc_1_address2, loc_1_city, loc_1_state, loc_1_zip, loc_2_name, loc_2_address1, loc_2_address2, loc_2_city, loc_2_state, loc_2_zip, loc_3_name, loc_3_address1, loc_3_address2, loc_3_city, loc_3_state, loc_3_zip, score,authenticatedEmail]
         cursor.callproc("InsertPrescreening", args)
+
         cnx.commit()
         cursor.close()
 
@@ -146,6 +150,33 @@ def handleTest():
 
     returnData["status"] = "success"
     return json.dumps(returnData)
+
+#Testing results
+@app.route("/handleRes", methods=["POST"])
+def handleRes():
+    data = json.loads(request.data.decode("utf-8"))
+    test_res=data["test_res"]
+    authenticatedEmail=data["authenticatedEmail"]
+
+    returnData = {}
+
+    cursor = cnx.cursor()
+    try:
+        args=[test_res, authenticatedEmail]
+        cursor.callproc("InsertResult", args) #Need to create this proc to insert testResult
+
+        cnx.commit()
+        cursor.close()
+
+    except mysql.connector.Error as e:
+        print("Error: ", e)
+        sys.stdout.flush()
+
+
+    returnData["status"] = "success"
+    return json.dumps(returnData)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="127.0.0.1", port=3000)

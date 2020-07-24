@@ -80,9 +80,9 @@ cursor = cnx.cursor()
 #password = "password"
 #args = (uname, password, 0)
 
-res = cursor.callproc("auth", args)
-for thing in res:
-	print(thing)
+#res = cursor.callproc("auth", args)
+#for thing in res:
+#	print(thing)
 ###args = (uname, password, 0)
 
 ####res = cursor.callproc("auth", args)
@@ -204,65 +204,100 @@ cnx.commit()
 
 #cursor.execute(""" DROP PROCEDURE InsertPrescreening; """)
 
-#cursor.execute("""  CREATE PROCEDURE InsertPrescreening(
-#					IN age_18_in VARCHAR(10),
-#						IN age_65_in VARCHAR(10),
-#						IN official_consent_in VARCHAR(10),
-#						IN close_contact_in VARCHAR(10),
-#						IN fever_in VARCHAR(10),
-#						IN cough_in VARCHAR(10),
-#						IN breathing_in VARCHAR(10),
-#						IN chills_in VARCHAR(10),
-#						IN shaking_chills_in VARCHAR(10),
-#						IN muscle_pain_in VARCHAR(10),
-#						IN headache_in VARCHAR(10),
-#						IN sore_throat_in VARCHAR(10),
-#						IN taste_smell_in VARCHAR(10),
-#						IN vomiting_in VARCHAR(10),
-#						IN diarrhea_in VARCHAR(10),
-#						IN asthma_lung_in VARCHAR(10),
-#						IN diabetes_in VARCHAR(10),
-#						IN obesity_in VARCHAR(10),
-#						IN cirrhosis_in VARCHAR(10),
-#						IN heart_condition_in VARCHAR(10),
-#						IN harder_cough_disease_in VARCHAR(10),
-#						IN kidney_renal_disease_in VARCHAR(10),
-#						IN weakened_immune_system_in VARCHAR(10),
-#						IN pregnant_in VARCHAR(10),
-#						IN essential_healthcare_worker_in VARCHAR(10),
-#						IN address1_in VARCHAR(255),
-#						IN address2_in VARCHAR(255),
-##						IN city_in VARCHAR(50),
-#						IN state_in VARCHAR(50),
-#						IN zip_in INT(15),
-#						IN loc_1_name_in VARCHAR(100),
-#						IN loc_1_address1_in VARCHAR(255),
-#						IN loc_1_address2_in VARCHAR(255),
-#						IN loc_1_city_in VARCHAR(50),
-#						IN loc_1_state_in VARCHAR(50),
-#						IN loc_1_zip_in INT(15),
-#						IN loc_2_name_in VARCHAR(100),
-#						IN loc_2_address1_in VARCHAR(255),
-#						IN loc_2_address2_in VARCHAR(255),
-#						IN loc_2_city_in VARCHAR(50),
-#						IN loc_2_state_in VARCHAR(50),
-#						IN loc_2_zip_in INT(15),
-#						IN loc_3_name_in VARCHAR(100),
-#						IN loc_3_address1_in VARCHAR(255),
-#						IN loc_3_address2_in VARCHAR(255),
-#						IN loc_3_city_in VARCHAR(50),
-#						IN loc_3_state_in VARCHAR(50),
-#						IN loc_3_zip_in INT(15),
-#						IN score_in INT)
-#					BEGIN
+"""cursor.execute( CREATE PROCEDURE InsertPrescreening(
+					IN age_18_in VARCHAR(10),
+						IN age_65_in VARCHAR(10),
+						IN official_consent_in VARCHAR(10),
+						IN close_contact_in VARCHAR(10),
+						IN fever_in VARCHAR(10),
+						IN cough_in VARCHAR(10),
+						IN breathing_in VARCHAR(10),
+						IN chills_in VARCHAR(10),
+						IN shaking_chills_in VARCHAR(10),
+						IN muscle_pain_in VARCHAR(10),
+						IN headache_in VARCHAR(10),
+						IN sore_throat_in VARCHAR(10),
+						IN taste_smell_in VARCHAR(10),
+						IN vomiting_in VARCHAR(10),
+						IN diarrhea_in VARCHAR(10),
+						IN asthma_lung_in VARCHAR(10),
+						IN diabetes_in VARCHAR(10),
+						IN obesity_in VARCHAR(10),
+						IN cirrhosis_in VARCHAR(10),
+						IN heart_condition_in VARCHAR(10),
+						IN harder_cough_disease_in VARCHAR(10),
+						IN kidney_renal_disease_in VARCHAR(10),
+						IN weakened_immune_system_in VARCHAR(10),
+						IN pregnant_in VARCHAR(10),
+						IN essential_healthcare_worker_in VARCHAR(10),
+						IN address1_in VARCHAR(255),
+						IN address2_in VARCHAR(255),
+						IN city_in VARCHAR(50),
+						IN state_in VARCHAR(50),
+						IN zip_in INT(15),
+						IN loc_1_name_in VARCHAR(100),
+						IN loc_1_address1_in VARCHAR(255),
+						IN loc_1_address2_in VARCHAR(255),
+						IN loc_1_city_in VARCHAR(50),
+						IN loc_1_state_in VARCHAR(50),
+						IN loc_1_zip_in INT(15),
+						IN loc_2_name_in VARCHAR(100),
+						IN loc_2_address1_in VARCHAR(255),
+						IN loc_2_address2_in VARCHAR(255),
+						IN loc_2_city_in VARCHAR(50),
+						IN loc_2_state_in VARCHAR(50),
+						IN loc_2_zip_in INT(15),
+						IN loc_3_name_in VARCHAR(100),
+						IN loc_3_address1_in VARCHAR(255),
+						IN loc_3_address2_in VARCHAR(255),
+						IN loc_3_city_in VARCHAR(50),
+						IN loc_3_state_in VARCHAR(50),
+						IN loc_3_zip_in INT(15),
+						IN score_in INT,
+						IN authenticatedEmail_in VARCHAR(100))
+					BEGIN
 						
+							
+							
+							
+				   			INSERT INTO Prescreening (age_18, age_65, official_consent, close_contact, fever, cough, breathing, chills, shaking_chills, muscle_pain, headache, sore_throat, taste_smell, vomiting, diarrhea, asthma_lung, diabetes, obesity, cirrhosis, heart_condition, harder_cough_disease, kidney_renal_disease, weakened_immune_system, pregnant, essential_healthcare_worker, address1, address2, city, state, zip, loc_1_name, loc_1_address1, loc_1_address2, loc_1_city, loc_1_state, loc_1_zip, loc_2_name, loc_2_address1, loc_2_address2, loc_2_city, loc_2_state, loc_2_zip, loc_3_name, loc_3_address1, loc_3_address2, loc_3_city, loc_3_state, loc_3_zip,score)
+				   			VALUES (age_18_in, age_65_in, official_consent_in, close_contact_in, fever_in, cough_in, breathing_in, chills_in, shaking_chills_in, muscle_pain_in, headache_in, sore_throat_in, taste_smell_in, vomiting_in, diarrhea_in, asthma_lung_in, diabetes_in, obesity_in, cirrhosis_in, heart_condition_in, harder_cough_disease_in, kidney_renal_disease_in, weakened_immune_system_in, pregnant_in, essential_healthcare_worker_in, address1_in, address2_in, city_in, state_in, zip_in, loc_1_name_in, loc_1_address1_in, loc_1_address2_in, loc_1_city_in, loc_1_state_in, loc_1_zip_in, loc_2_name_in, loc_2_address1_in, loc_2_address2_in, loc_2_city_in, loc_2_state_in, loc_2_zip_in, loc_3_name_in, loc_3_address1_in, loc_3_address2_in, loc_3_city_in, loc_3_state_in, loc_3_zip_in,score_in);
+			
+							SET @LID = LAST_INSERT_ID();			
+							SELECT userID INTO @userIDin FROM Users where email= authenticatedEmail_in;
 
-				   	
+							INSERT INTO User_pre(userID, pre_id)
+							VALUES(@userIDin,@LID);   
+ 
+END;)
+"""
+
+"""cursor.execute( CREATE PROCEDURE InsertResult(
+					IN test_res_in VARCHAR(10),
+					IN authenticatedEmail_in VARCHAR(100))
+
+				BEGIN
+							INSERT INTO Result (test_res)
+							VALUES (test_res_in);
+							SET @LID = LAST_INSERT_ID();
+
+
+							SELECT userID INTO @userIDin FROM Users where email= authenticatedEmail_in;
+
+				   			INSERT INTO User_res (userID, res_id)
+							VALUES (@userIDin,@LID);
+
+					END;)
+					"""
 		
-#				   			INSERT INTO Prescreening (age_18, age_65, official_consent, close_contact, fever, cough, breathing, chills, shaking_chills, muscle_pain, headache, sore_throat, taste_smell, vomiting, diarrhea, asthma_lung, diabetes, obesity, cirrhosis, heart_condition, harder_cough_disease, kidney_renal_disease, weakened_immune_system, pregnant, essential_healthcare_worker, address1, address2, city, state, zip, loc_1_name, loc_1_address1, loc_1_address2, loc_1_city, loc_1_state, loc_1_zip, loc_2_name, loc_2_address1, loc_2_address2, loc_2_city, loc_2_state, loc_2_zip, loc_3_name, loc_3_address1, loc_3_address2, loc_3_city, loc_3_state, loc_3_zip,score)
-#				   			VALUES (age_18_in, age_65_in, official_consent_in, close_contact_in, fever_in, cough_in, breathing_in, chills_in, shaking_chills_in, muscle_pain_in, headache_in, sore_throat_in, taste_smell_in, vomiting_in, diarrhea_in, asthma_lung_in, diabetes_in, obesity_in, cirrhosis_in, heart_condition_in, harder_cough_disease_in, kidney_renal_disease_in, weakened_immune_system_in, pregnant_in, essential_healthcare_worker_in, address1_in, address2_in, city_in, state_in, zip_in, loc_1_name_in, loc_1_address1_in, loc_1_address2_in, loc_1_city_in, loc_1_state_in, loc_1_zip_in, loc_2_name_in, loc_2_address1_in, loc_2_address2_in, loc_2_city_in, loc_2_state_in, loc_2_zip_in, loc_3_name_in, loc_3_address1_in, loc_3_address2_in, loc_3_city_in, loc_3_state_in, loc_3_zip_in,score_in);
-#			
-#				   END;""")
+
+							
+
+
+#cursor.execute(""" DROP PROCEDURE InsertUser_pre; """)
+
+##################################
+
 
 
 cursor.close()
