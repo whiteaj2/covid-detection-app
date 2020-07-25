@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Cookies from "universal-cookie";
+import Geocode from "react-geocode";
 
 const cookies = new Cookies();
+Geocode.setApiKey("AIzaSyBc8EJ3AVtUvsPpYTj3paPRTRT44ILmrqI");
 
 export class Test extends Component {
     constructor(props) {
@@ -60,13 +62,74 @@ export class Test extends Component {
         loc_3_state:"",
         loc_3_zip:"",
         score:"",
+        lat_1: 0,
+        long_1: 0,
+        lat_2: 0,
+        long_2: 0,
+        lat_3: 0,
+        long_3: 0,
         authenticatedEmail: cookies.get("authenticatedEmail"),
         queryResults: null
     }
 
-    handleTest = (event) => {
-        event.preventDefault();
+    preHandle = (event) => {
+        let addressOne = this.state.loc_1_address1;
+        if(this.state.loc_1_address2 != "") {
+            addressOne = addressOne + " " + this.state.loc_1_address2;
+        }
+        addressOne = addressOne + " " + this.state.loc_1_city + " " + this.state.loc_1_state + " " + this.state.loc_1_zip;
 
+        if(this.state.loc_1_address1 == ""
+            || this.state.loc_1_city == ""
+            || this.state.loc_1_state == ""
+            || this.state.loc_1_zip == "") {
+            addressOne = "";
+        }
+        //-----------------------------------
+        let addressTwo = this.state.loc_2_address1;
+        if(this.state.loc_2_address2 != "") {
+            addressTwo = addressTwo + " " + this.state.loc_2_address2;
+        }
+        addressTwo = addressTwo + " " + this.state.loc_2_city + " " + this.state.loc_2_state + " " + this.state.loc_2_zip;
+
+        if(this.state.loc_2_address1 == ""
+            || this.state.loc_2_city == ""
+            || this.state.loc_2_state == ""
+            || this.state.loc_2_zip == "") {
+            addressTwo = "";
+        }
+        //------------------------------------
+        let addressThree = this.state.loc_3_address1;
+        if(this.state.loc_3_address2 != "") {
+            addressThree = addressThree + " " + this.state.loc_3_address2;
+        }
+        addressThree = addressThree + " " + this.state.loc_3_city + " " + this.state.loc_3_state + " " + this.state.loc_3_zip;
+
+        if(this.state.loc_3_address1 == ""
+            || this.state.loc_3_city == ""
+            || this.state.loc_3_state == ""
+            || this.state.loc_3_zip == "") {
+            addressThree = "";
+        }
+
+
+        Geocode.fromAddress(addressOne).then(res => {this.setState({lat_1: res.results[0].geometry.location.lat,
+                                                                    long_1: res.results[0].geometry.location.lng})
+                                                                    },
+                                             error => {});
+
+        Geocode.fromAddress(addressTwo).then(res => {this.setState({lat_2: res.results[0].geometry.location.lat,
+                                                                    long_2: res.results[0].geometry.location.lng})
+                                                                    },
+                                             error => {});
+
+        Geocode.fromAddress(addressThree).then(res => {this.setState({lat_3: res.results[0].geometry.location.lat,
+                                                                    long_3: res.results[0].geometry.location.lng})
+                                                                    },
+                                             error => {});
+    };
+
+    handleTest = (event) => {
         let checkedBoxes = document.querySelectorAll('input[name=c]:checked');
         let totalLength=checkedBoxes.length;
 
@@ -97,30 +160,13 @@ export class Test extends Component {
                                                                     kidney_renal_disease: this.state.kidney_renal_disease ,
                                                                     weakened_immune_system: this.state.weakened_immune_system ,
                                                                     pregnant: this.state.pregnant ,
-                                                                    essential_healthcare_worker: this.state.essential_healthcare_worker ,
-                                                                    address1: this.state.address1 ,
-                                                                    address2: this.state.address2 ,
-                                                                    city: this.state.city ,
-                                                                    state: this.state.state ,
-                                                                    zip: this.state.zip ,
-                                                                    loc_1_name: this.state.loc_1_name ,
-                                                                    loc_1_address1: this.state.loc_1_address1 ,
-                                                                    loc_1_address2: this.state.loc_1_address2 ,
-                                                                    loc_1_city: this.state.loc_1_city ,
-                                                                    loc_1_state: this.state.loc_1_state ,
-                                                                    loc_1_zip: this.state.loc_1_zip ,
-                                                                    loc_2_name: this.state.loc_2_name ,
-                                                                    loc_2_address1: this.state.loc_2_address1 ,
-                                                                    loc_2_address2: this.state.loc_2_address2 ,
-                                                                    loc_2_city: this.state.loc_2_city ,
-                                                                    loc_2_state: this.state.loc_2_state ,
-                                                                    loc_2_zip: this.state.loc_2_zip ,
-                                                                    loc_3_name: this.state.loc_3_name ,
-                                                                    loc_3_address1: this.state.loc_3_address1 ,
-                                                                    loc_3_address2: this.state.loc_3_address2 ,
-                                                                    loc_3_city: this.state.loc_3_city ,
-                                                                    loc_3_state: this.state.loc_3_state ,
-                                                                    loc_3_zip: this.state.loc_3_zip,
+                                                                    essential_healthcare_worker: this.state.essential_healthcare_worker,
+                                                                    lat_1: this.state.lat_1,
+                                                                    long_1: this.state.long_1,
+                                                                    lat_2: this.state.lat_2,
+                                                                    long_2: this.state.long_2,
+                                                                    lat_3: this.state.lat_3,
+                                                                    long_3: this.state.long_3,
                                                                     score: totalLength,
                                                                     authenticatedEmail: this.state.authenticatedEmail
                                                                     
@@ -160,6 +206,12 @@ export class Test extends Component {
                                                         
 
                                                         }
+
+    handleAllTest = (event) => {
+        event.preventDefault();
+        this.preHandle(event);
+        this.handleTest(event);
+    }
                                                          
 
 
@@ -586,7 +638,7 @@ export class Test extends Component {
 
 
                 <div className="login-buttons">
-                        <button type="submit" className="btn btn-custom" onClick={this.handleTest}>Submit</button><br/>
+                        <button type="submit" className="btn btn-custom" onClick={this.handleAllTest}>Submit</button><br/>
                 </div>
 
             </div>
